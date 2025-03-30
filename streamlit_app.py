@@ -31,8 +31,7 @@ with st.expander('Data'):
 with st.expander('Data visualization'):
   x = df['time (sec)'].values
   y = df.iloc[:,5].values
-  fig = go.Figure()
-  fig.add_trace(go.Scatter(x, y, mode='markers', marker=dict(size=2)))
+  fig = px.scatter(x, y, mode='markers', marker=dict(size=2))
   fig.update_layout(
     title='CO2 concentration (%) with respect to time',
     xaxis_title='Time (sec)',
