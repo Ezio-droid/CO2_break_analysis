@@ -40,7 +40,8 @@ with st.expander('Data visualization'):
     xaxis=dict(showgrid=True),
     yaxis=dict(showgrid=True),
     #width=900,
-    #height=400)
+    #height=400
+  )
 
   st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
