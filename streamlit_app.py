@@ -57,7 +57,7 @@ with st.expander('Visualization od adsorbed volume'):
   _lock = RLock()
   with _lock:
     fig, ax = plt.subplots()
-    plt.plot(x_filtered, y_filtered, s=1, label= 'CO2 concentration')
+    plt.plot(x_filtered, y_filtered, label= 'CO2 concentration')
     plt.axhline(y=initial_conc, color= 'r', linestyle='--', label= f'y = {initial_conc}')
     plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered > initial_conc), interpolate=True, alpha=0.3)
     plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered < initial_conc), interpolate=True, alpha=0.3)
