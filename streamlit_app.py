@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from threading import RLock
 import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
 
 st.title('💨 CO2 BCA App')
 
