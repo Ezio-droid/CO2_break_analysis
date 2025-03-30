@@ -53,6 +53,23 @@ area_percentage_co2_sec = np.trapz(y_diff, x_filtered)
 area_fractional_co2_sec = area_percentage_co2_sec / 100
 volume_cm3 = area_fractional_co2_sec * (flow_rate / 60)
 
+with st.expander('Visualization od adsorbed volume'):
+  _lock = RLock()
+  x = df['time (sec)'].values
+  y = df.iloc[:,5].values
+  with _lock:
+    fig, ax = plt.subplots()
+    plt.plot(x_filtered, y_filtered, s=1, label= 'CO2 concentration')
+    plt.axhline(y=initial_conc, color= 'r', linestyle='--', label= f'y = {initial_conc}')
+    plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered > initial_conc), interpolate=True, alpha=0.3)
+    plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered < initial_conc), interpolate=True, alpha=0.3)
+    plt.xlabel('Time (sec)')
+    plt.ylabel('CO2 concentration (%)')
+    plt.grid(True)
+    plt.legend()
+    plt.title('CO2 Concentration vs Time within the specified range')
+    st.pyplot(fig)
+
 with st.expander('CO2 adsorbed volume (cm3)'):
   volume_cm3
 
