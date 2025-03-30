@@ -96,13 +96,13 @@ with st.expander('Visualization of adsorbed volume'):
     fig.add_trace(go.Scatter(x=x_filtered/60, y=y_filtered, mode='lines', name='CO2 concentration'))
     
     # Horizontal line for initial concentration
-    fig.add_trace(go.Scatter(x=x_filtered, y=[initial_conc]*len(x_filtered), mode='lines', 
+    fig.add_trace(go.Scatter(x=x_filtered/60, y=[initial_conc]*len(x_filtered/60), mode='lines', 
                              line=dict(color='red', dash='dash'), name=f'y = {initial_conc}'))
     
     # Shaded area above and below initial concentration
-    fig.add_trace(go.Scatter(x=x_filtered, y=y_filtered, fill='tonexty', mode='none', 
+    fig.add_trace(go.Scatter(x=x_filtered/60, y=y_filtered, fill='tonexty', mode='none', 
                              fillcolor='rgba(0,100,200,0.3)', name='Above Initial Conc'))
-    fig.add_trace(go.Scatter(x=x_filtered, y=[initial_conc]*len(x_filtered), fill='tonexty', mode='none', 
+    fig.add_trace(go.Scatter(x=x_filtered/60, y=[initial_conc]*len(x_filtered/60), fill='tonexty', mode='none', 
                              fillcolor='rgba(200,100,0,0.3)', name='Below Initial Conc'))
     
     fig.update_layout(
