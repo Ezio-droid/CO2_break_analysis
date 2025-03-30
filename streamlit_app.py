@@ -40,7 +40,7 @@ input_data = {'flow_rate':flow_rate,
               'end_time':end_time,
              'initial_conc':initial_conc}
 with st.expander('Input parameters'):
-  input_df = pd.DataFrame(input_data, index=[0])
+  input_df = st.data_editor(pd.DataFrame(input_data, index=[0]))
   input_df
 
 mask = (x >= start_time) & (x <= end_time)
