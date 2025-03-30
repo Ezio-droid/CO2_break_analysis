@@ -74,20 +74,47 @@ area_percentage_co2_sec = np.trapz(y_diff, x_filtered)
 area_fractional_co2_sec = area_percentage_co2_sec / 100
 volume_cm3 = area_fractional_co2_sec * (flow_rate / 60)
 
-with st.expander('Visualization od adsorbed volume'):
-  _lock = RLock()
-  with _lock:
-    fig, ax = plt.subplots()
-    plt.plot(x_filtered, y_filtered, label= 'CO2 concentration')
-    plt.axhline(y=initial_conc, color= 'r', linestyle='--', label= f'y = {initial_conc}')
-    plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered > initial_conc), interpolate=True, alpha=0.3)
-    plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered < initial_conc), interpolate=True, alpha=0.3)
-    plt.xlabel('Time (sec)')
-    plt.ylabel('CO2 concentration (%)')
-    plt.grid(True)
-    plt.legend()
-    plt.title('CO2 Concentration vs Time within the specified range')
-    st.pyplot(fig)
+#with st.expander('Visualization od adsorbed volume'):
+#  _lock = RLock()
+#  with _lock:
+#    fig, ax = plt.subplots()
+#    plt.plot(x_filtered, y_filtered, label= 'CO2 concentration')
+#    plt.axhline(y=initial_conc, color= 'r', linestyle='--', label= f'y = {initial_conc}')
+#    plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered > initial_conc), interpolate=True, alpha=0.3)
+#    plt.fill_between(x_filtered, y_filtered, initial_conc, where=(y_filtered < initial_conc), interpolate=True, alpha=0.3)
+#    plt.xlabel('Time (sec)')
+#    plt.ylabel('CO2 concentration (%)')
+#    plt.grid(True)
+#    plt.legend()
+#    plt.title('CO2 Concentration vs Time within the specified range')
+#    st.pyplot(fig)
+
+with st.expander('Visualization of adsorbed volume'):
+    fig = go.Figure()
+    
+    # Line plot for CO2 concentration
+    fig.add_trace(go.Scatter(x=x_filtered, y=y_filtered, mode='lines', name='CO2 concentration'))
+    
+    # Horizontal line for initial concentration
+    fig.add_trace(go.Scatter(x=x_filtered, y=[initial_conc]*len(x_filtered), mode='lines', 
+                             line=dict(color='red', dash='dash'), name=f'y = {initial_conc}'))
+    
+    # Shaded area above and below initial concentration
+    fig.add_trace(go.Scatter(x=x_filtered, y=y_filtered, fill='tonexty', mode='none', 
+                             fillcolor='rgba(0,100,200,0.3)', name='Above Initial Conc'))
+    fig.add_trace(go.Scatter(x=x_filtered, y=[initial_conc]*len(x_filtered), fill='tonexty', mode='none', 
+                             fillcolor='rgba(200,100,0,0.3)', name='Below Initial Conc'))
+    
+    fig.update_layout(
+        title='CO2 Concentration vs Time within the specified range',
+        xaxis_title='Time (sec)',
+        yaxis_title='CO2 concentration (%)',
+        template='plotly_white',
+        xaxis=dict(showgrid=True),
+        yaxis=dict(showgrid=True)
+    )
+    
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 with st.expander('CO2 adsorbed volume (cm3)'):
   volume_cm3
