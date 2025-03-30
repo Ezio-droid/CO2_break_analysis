@@ -33,7 +33,7 @@ with st.sidebar:
 input_data = {'flow_rate':flow_rate,
               'start_time':start_time,
               'end_time':end_time}
-input_df = pd.DataFrame(input_data, index[0])
+input_df = pd.DataFrame(input_data, index=[0])
 input_df
     
 
