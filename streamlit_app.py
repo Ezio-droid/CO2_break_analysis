@@ -14,17 +14,34 @@ with st.expander('Data'):
   df['time (sec)'] = df[0] - df.iloc[0,0]
   df
   
+#with st.expander('Data visualization'):
+#  _lock = RLock()
+#  x = df['time (sec)'].values
+#  y = df.iloc[:,5].values
+#  with _lock:
+#    fig, ax = plt.subplots()
+#    ax.scatter(x,y, s=1)
+#    plt.xlabel('Time (sec)')
+#    plt.ylabel('CO2 concentration (%)')
+#    plt.grid(True)
+#    st.pyplot(fig)
 with st.expander('Data visualization'):
-  _lock = RLock()
   x = df['time (sec)'].values
   y = df.iloc[:,5].values
-  with _lock:
-    fig, ax = plt.subplots()
-    ax.scatter(x,y, s=1)
-    plt.xlabel('Time (sec)')
-    plt.ylabel('CO2 concentration (%)')
-    plt.grid(True)
-    st.pyplot(fig)
+  fig = go.Figure()
+  fig.add_trace(go.Scatter(x, y, mode='markers', marker=dict(size=2)))
+  fig.update_layout(
+    title='CO2 concentration (%) with respect to time',
+    xaxis_title='Time (sec)',
+    yaxis_title='CO2 concentration (%)',
+    template='plotly_white',
+    xaxis=dict(showgrid=True),
+    yaxis=dict(showgrid=True),
+    width=900,
+    height=400)
+  fig.show()
+
+
 
 #Parameters
 with st.sidebar:
