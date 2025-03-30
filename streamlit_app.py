@@ -93,7 +93,7 @@ with st.expander('Visualization of adsorbed volume'):
     fig = go.Figure()
     
     # Line plot for CO2 concentration
-    fig.add_trace(go.Scatter(x=x_filtered, y=y_filtered, mode='lines', name='CO2 concentration'))
+    fig.add_trace(go.Scatter(x=x_filtered/60, y=y_filtered, mode='lines', name='CO2 concentration'))
     
     # Horizontal line for initial concentration
     fig.add_trace(go.Scatter(x=x_filtered, y=[initial_conc]*len(x_filtered), mode='lines', 
@@ -107,7 +107,7 @@ with st.expander('Visualization of adsorbed volume'):
     
     fig.update_layout(
         title='CO2 Concentration vs Time within the specified range',
-        xaxis_title='Time (sec)',
+        xaxis_title='Time (min)',
         yaxis_title='CO2 concentration (%)',
         template='plotly_white',
         xaxis=dict(showgrid=True),
