@@ -23,7 +23,7 @@ with st.expander('Data'):
 #  ax.scatter(x,y)
 #  st.pyplot(fig)
 with st.expander('Data visualization'):
-  st.scatter_chart(data=df, x='time', y='CO2', color='blue')
+  st.scatter_chart(data=df, x=time, y=CO2, color='blue')
 
 
 
