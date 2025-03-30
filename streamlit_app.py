@@ -49,7 +49,14 @@ with st.expander('Data visualization'):
 
 #Parameters
 with st.sidebar:
-  st.header('Input features')
+  st.header('Input features for adsorption')
+  flow_rate = st.slider("Flow Rate (sccm)", min_value=1.00, max_value=500.00, value=111.00)
+  start_time = st.slider("Start Time (sec)", min_value=0, max_value=36000, value=0)
+  end_time = st.slider("End Time (sec)", min_value=0, max_value=36000, value=600)
+  initial_conc = st.slider("Initial concentration (%CO2)", min_value=1.00, max_value=15.00, value=0.01)
+
+with st.sidebar:
+  st.header('Input features for desorption')
   flow_rate = st.slider("Flow Rate (sccm)", min_value=1.00, max_value=500.00, value=111.00)
   start_time = st.slider("Start Time (sec)", min_value=0, max_value=36000, value=0)
   end_time = st.slider("End Time (sec)", min_value=0, max_value=36000, value=600)
@@ -118,6 +125,8 @@ with st.expander('Visualization of adsorbed volume'):
 
 with st.expander('CO2 adsorbed volume (cm3)'):
   volume_cm3
+
+
 
 
     
