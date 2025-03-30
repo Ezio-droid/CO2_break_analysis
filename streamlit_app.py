@@ -30,6 +30,7 @@ with st.expander('Data visualization'):
     fig, ax = plt.subplots()
     ax.scatter(x,y)
     st.pyplot(fig)
+    
 
 
 
