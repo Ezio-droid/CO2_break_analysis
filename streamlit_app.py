@@ -5,6 +5,7 @@ from threading import RLock
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.figure_factory as ff
 
 st.title('💨 CO2 BCA App')
 
