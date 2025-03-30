@@ -13,24 +13,17 @@ with st.expander('Data'):
   df
 
 
-_lock = RLock()
+#_lock = RLock()
 
-x = df.iloc[:,0]
-y = df.iloc[:,1]
+#x = df.iloc[:,0]
+#y = df.iloc[:,1]
 
-with _lock:
-  fig, ax = plt.subplots()
-  ax.scatter(x,y)
-  st.pyplot(fig)
+#with _lock:
+#  fig, ax = plt.subplots()
+#  ax.scatter(x,y)
+#  st.pyplot(fig)
+with st.expander('Data visualization'):
+  st.scatter_chart(data=df, x='time', y='CO2', color='blue')
 
-#plt.scatter(data_pei_silica_powder_black_lid_light_run8['time (sec)'], data_pei_silica_powder_black_lid_light_run8.iloc[:, 5], s=1)  # s controls marker size
-#plt.xlim(6000, 15000)
-
-#plt.xlabel('Time (sec)')
-#plt.xlim(150000, 350000)
-#plt.ylabel('% CO2')
-##plt.title('Scatter Plot')
-#plt.grid(True)
-#plt.show()
 
 
