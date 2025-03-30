@@ -28,6 +28,13 @@ with st.sidebar:
   flow_rate = st.slider("Flow Rate (sccm)", min_value=1, max_value=500, value=100)
   start_time = st.slider("Start Time (sec)", min_value=0, max_value=36000, value=0)
   end_time = st.slider("End Time (sec)", min_value=0, max_value=36000, value=600)
+
+#Data frame for input features
+input_data = {'flow_rate':flow_rate,
+              'start_time':start_time,
+              'end_time':end_time
+  
+}
     
 
 
