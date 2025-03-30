@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from threading import RLock
+import numpy as np
 
 st.title('💨 CO2 BCA App')
 
