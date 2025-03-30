@@ -31,17 +31,20 @@ with st.expander('Data'):
 with st.expander('Data visualization'):
   x = df['time (sec)'].values
   y = df.iloc[:,5].values
-  fig = px.scatter(x, y, mode='markers', marker=dict(size=2))
+  fig = px.scatter(
+    x=time_values, 
+    y=co2_values, 
+    labels={'x': 'Time (sec)', 'y': '% CO2'}, 
+    title='Scatter Plot')
+  fig.update_traces(marker=dict(size=2))  # Adjust marker size
   fig.update_layout(
-    title='CO2 concentration (%) with respect to time',
-    xaxis_title='Time (sec)',
-    yaxis_title='CO2 concentration (%)',
     template='plotly_white',
     xaxis=dict(showgrid=True),
     yaxis=dict(showgrid=True),
     width=900,
     height=400)
-  fig.show()
+
+  st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 
 
