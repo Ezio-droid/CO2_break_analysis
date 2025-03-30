@@ -38,6 +38,11 @@ input_data = {'flow_rate':flow_rate,
 with st.expander('Input parameters'):
   input_df = pd.DataFrame(input_data, index=[0])
   input_df
+
+with st.expander('Filtered data'):
+  mask = (x >=input_df['start_time']) & (x <= input_df['end_time'])
+  x_filtered = x[mask]
+  y_filtered = y[mask]
     
 
 
