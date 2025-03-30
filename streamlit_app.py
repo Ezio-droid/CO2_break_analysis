@@ -23,7 +23,13 @@ with st.expander('Data'):
 #  ax.scatter(x,y)
 #  st.pyplot(fig)
 with st.expander('Data visualization'):
-  st.scatter_chart(data=df, x=df.iloc[:,0], y=df.iloc[:,1], color='blue')
+  _lock = RLock()
+  x = df.iloc[:,0]
+  y = df.iloc[:,1]
+  with _lock:
+    fig, ax = plt.subplots()
+    ax.scatter(x,y)
+    st.pyplot(fig)
 
 
 
