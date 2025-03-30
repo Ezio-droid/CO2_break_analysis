@@ -29,9 +29,9 @@ with st.expander('Data'):
 #    plt.grid(True)
 #    st.pyplot(fig)
 with st.expander('Data visualization'):
-  x = df['time (sec)'].values
-  y = df.iloc[:,5].values
-  fig = px.scatter(x,y, 
+  #x = df['time (sec)'].values
+  #y = df.iloc[:,5].values
+  fig = px.scatter(x= df['time (sec)'].values,y= df.iloc[:,5].values, 
     labels={'x': 'Time (sec)', 'y': '% CO2'}, 
     title='Scatter Plot')
   fig.update_traces(marker=dict(size=2))  # Adjust marker size
