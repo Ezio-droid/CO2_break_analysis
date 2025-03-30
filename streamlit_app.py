@@ -55,8 +55,6 @@ volume_cm3 = area_fractional_co2_sec * (flow_rate / 60)
 
 with st.expander('Visualization od adsorbed volume'):
   _lock = RLock()
-  x = df['time (sec)'].values
-  y = df.iloc[:,5].values
   with _lock:
     fig, ax = plt.subplots()
     plt.plot(x_filtered, y_filtered, s=1, label= 'CO2 concentration')
