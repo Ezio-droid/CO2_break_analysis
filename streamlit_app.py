@@ -25,9 +25,9 @@ with st.expander('Data visualization'):
 #Parameters
 with st.sidebar:
   st.header('Input features')
-  flow_rate = st.slider("Flow Rate (sccm)", min_value=10, max_value=500, value=100)
-  start_time = st.slider("Start Time (sec)", min_value=0, max_value=3600, value=0)
-  end_time = st.slider("End Time (sec)", min_value=0, max_value=3600, value=600)
+  flow_rate = st.slider("Flow Rate (sccm)", min_value=1, max_value=500, value=100)
+  start_time = st.slider("Start Time (sec)", min_value=0, max_value=36000, value=0)
+  end_time = st.slider("End Time (sec)", min_value=0, max_value=36000, value=600)
     
 
 
