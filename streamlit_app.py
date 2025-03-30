@@ -31,9 +31,7 @@ with st.expander('Data'):
 with st.expander('Data visualization'):
   x = df['time (sec)'].values
   y = df.iloc[:,5].values
-  fig = px.scatter(
-    x=time_values, 
-    y=co2_values, 
+  fig = px.scatter(x,y, 
     labels={'x': 'Time (sec)', 'y': '% CO2'}, 
     title='Scatter Plot')
   fig.update_traces(marker=dict(size=2))  # Adjust marker size
