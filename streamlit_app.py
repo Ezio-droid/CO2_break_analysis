@@ -42,6 +42,17 @@ with st.expander('Input parameters'):
   input_df = pd.DataFrame(input_data, index=[0])
   input_df
 
+mask = (x >= start_time) & (x <= end_time)
+x_filtered = x[mask]
+y_filtered = y[mask]
+
+y_diff = np.abs(y_filtered - initial_conc)
+area_percentage_co2_sec = np.trapz(y_diff, x_filtered)
+area_fractional_co2_sec = area_percentage_co2_sec / 100
+volume_cm3 = area_fractional_co2_sec * (flow_rate / 60)
+
+with st.expander('CO2 adsorbed volume (cm3)'):
+  volume_cm3
 
 
     
