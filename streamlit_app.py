@@ -15,8 +15,8 @@ with st.expander('Data'):
   
 with st.expander('Data visualization'):
   _lock = RLock()
-  x = df['time (sec)']
-  y = df.iloc[:,5]
+  x = df['time (sec)'].values
+  y = df.iloc[:,5].values
   with _lock:
     fig, ax = plt.subplots()
     ax.scatter(x,y, s=1)
@@ -42,10 +42,8 @@ with st.expander('Input parameters'):
   input_df = pd.DataFrame(input_data, index=[0])
   input_df
 
-#with st.expander('Filtered data'):
-#  mask = (x >=input_df['start_time']) & (x <= input_df['end_time'])
-##  x_filtered = x[mask]
-#  y_filtered = y[mask]
+
+
     
 
 
