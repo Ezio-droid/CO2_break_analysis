@@ -32,9 +32,9 @@ with st.sidebar:
 #Data frame for input features
 input_data = {'flow_rate':flow_rate,
               'start_time':start_time,
-              'end_time':end_time
-  
-}
+              'end_time':end_time}
+input_df = pd.DataFrame(input_data, index[0])
+input_df
     
 
 
