@@ -1,13 +1,13 @@
-# 📦 Streamlit App Starter Kit 
+# 🌬️ CO2 breakthrough curve analysis
 ```
 ⬆️ (Replace above with your app's name)
 ```
 
-Description of the app ...
+Ths is app to analyze your CO2 breakthorugh curves
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://CO2-breakthorugh-curve.streamlit.app/)
 
 ## GitHub Codespaces
 
