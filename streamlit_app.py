@@ -1,5 +1,5 @@
 import streamlit as st
 
-st.title('🎈 App Name')
+st.title('💨 CO2 BCA App')
 
-st.write('Hello world!')
+st.write('This app help in analyzing Co2 breakthrough curves')
