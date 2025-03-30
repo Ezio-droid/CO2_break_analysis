@@ -15,8 +15,8 @@ with st.expander('Data'):
 
 _lock = RLock()
 
-x = df['time']
-y = df['CO2']
+x = df[:0]
+y = df[:1]
 
 with _lock:
   fig, ax = plt.subplots()
