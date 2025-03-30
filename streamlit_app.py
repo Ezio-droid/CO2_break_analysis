@@ -15,8 +15,8 @@ with st.expander('Data'):
 
 _lock = RLock()
 
-x = df[:0]
-y = df[:1]
+x = df.iloc[:,0]
+y = df.iloc[:,1]
 
 with _lock:
   fig, ax = plt.subplots()
