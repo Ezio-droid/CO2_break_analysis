@@ -13,14 +13,17 @@ with st.expander('Data'):
   df['time (sec)'] = df[0] - df.iloc[0,0]
   df
   
-#with st.expander('Data visualization'):
-#  _lock = RLock()
-#  x = df.iloc[:,0]
-#  y = df.iloc[:,1]
-#  with _lock:
-#    fig, ax = plt.subplots()
-#    ax.scatter(x,y)
-#    st.pyplot(fig)
+with st.expander('Data visualization'):
+  _lock = RLock()
+  x = df['time (sec)']
+  y = df.iloc[:,5]
+  with _lock:
+    fig, ax = plt.subplots()
+    ax.scatter(x,y, s=1)
+    plt.xlabel('Time (sec)')
+    plt.ylabel('CO2 concentration (%)')
+    plt.grid(True)
+    st.pyplot(fig)
 
 #Parameters
 with st.sidebar:
