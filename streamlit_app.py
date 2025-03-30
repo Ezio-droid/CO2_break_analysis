@@ -10,6 +10,7 @@ st.info('This app help in analyzing CO2 breakthrough curves')
 with st.expander('Data'):
   st.write('**Raw data**')
   df = pd.read_csv('https://raw.githubusercontent.com/Ezio-droid/data/refs/heads/main/combine_data_blank_processed_cp.dat')
+  df.columns = ['Time', 'CO2']
   df
 
 
