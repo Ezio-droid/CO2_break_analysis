@@ -66,14 +66,16 @@ with st.sidebar:
 
 
 #Data frame for input features
-input_data = {'flow_rate':flow_rate_a,
+input_data_a = {'flow_rate':flow_rate_a,
               'start_time':start_time_a,
               'end_time':end_time_a,
              'initial_conc':initial_conc_a}
 with st.expander('Input parameters'):
-  input_df = pd.DataFrame(input_data, index=[0])
-  edited_df = st.data_editor(input_df)
-  edited_df
+  st.badge("Adsorption",icon=":material/check:", color="green")
+  input_df_a = pd.DataFrame(input_data_a, index=[0])
+  edited_df_a = st.data_editor(input_df_a)
+  edited_df_a
+  st.badge("Desorption", icon=":material/check:", color="green")
 
 mask = (x >= start_time_a) & (x <= end_time_a)
 x_filtered = x[mask]
