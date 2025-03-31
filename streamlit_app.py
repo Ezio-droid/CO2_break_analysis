@@ -61,7 +61,7 @@ with st.sidebar:
   flow_rate_d = st.slider("Flow Rate Desorption (sccm)", min_value=1.00, max_value=500.00, value=111.00)
   start_time_d = st.slider("Start Time Desorption (sec)", min_value=0, max_value=36000, value=0)
   end_time_d = st.slider("End Time Desorption (sec)", min_value=0, max_value=36000, value=600)
-  initial_conc_d = st.slider("Initial concentration Desorption (%CO2)", min_value=1.00, max_value=15.00, value=0.01)
+  initial_conc_d = st.slider("Initial concentration Desorption (%CO2)", min_value=-1.00, max_value=15.00, value=0.01)
 
 
 
