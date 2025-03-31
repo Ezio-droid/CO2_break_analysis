@@ -66,14 +66,14 @@ with st.sidebar:
 
 
 #Data frame for input features
-input_data_a = {'flow_rate':flow_rate_a,
-              'start_time':start_time_a,
-              'end_time':end_time_a,
-             'initial_conc':initial_conc_a}
-input_data_d = {'flow_rate':flow_rate_d,
-              'start_time':start_time_d,
-              'end_time':end_time_d,
-             'initial_conc':initial_conc_d}
+input_data_a = {'flow_rate_ads':flow_rate_a,
+              'start_time_ads':start_time_a,
+              'end_time_ads':end_time_a,
+             'initial_conc_ads':initial_conc_a}
+input_data_d = {'flow_rate_des':flow_rate_d,
+              'start_time_des':start_time_d,
+              'end_time_des':end_time_d,
+             'initial_conc_des':initial_conc_d}
 
 with st.expander('Input parameters'):
   st.badge("Adsorption",icon=":material/check:", color="green")
