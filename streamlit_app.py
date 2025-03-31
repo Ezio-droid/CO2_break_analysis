@@ -79,7 +79,7 @@ with st.expander('Input parameters'):
   st.badge("Adsorption",icon=":material/check:", color="green")
   input_df_a = pd.DataFrame(input_data_a, index=[0])
   edited_df_a = st.data_editor(input_df_a)
-  edited_df_a
+  #edited_df_a
   st.badge("Desorption", icon=":material/check:", color="green")
   input_df_d = pd.DataFrame(input_data_d, index=[0])
   edited_df_d = st.data_editor(input_df_d)
