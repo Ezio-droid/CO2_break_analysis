@@ -146,6 +146,37 @@ with st.expander('Visualization of adsorbed volume'):
 with st.expander('CO2 adsorbed volume (cm3)'):
   volume_cm3_a
 
+with st.expander('Visualization of desorbed volume'):
+    fig = go.Figure()
+    
+    # Line plot for CO2 concentration
+    fig.add_trace(go.Scatter(x=x_filtered_d/60, y=y_filtered_d, mode='lines', name='CO2 concentration'))
+    
+    # Horizontal line for initial concentration
+    fig.add_trace(go.Scatter(x=x_filtered_d/60, y=[initial_conc_d]*len(x_filtered_d/60), mode='lines', 
+                             line=dict(color='red', dash='dash'), name=f'y = {initial_conc_d}'))
+    
+    # Shaded area above and below initial concentration
+    fig.add_trace(go.Scatter(x=x_filtered_d/60, y=y_filtered_d, fill='tonexty', mode='none', 
+                             fillcolor='rgba(0,100,200,0.3)', name='Above Initial Conc'))
+    fig.add_trace(go.Scatter(x=x_filtered_d/60, y=[initial_conc_d]*len(x_filtered_d/60), fill='tonexty', mode='none', 
+                             fillcolor='rgba(200,100,0,0.3)', name='Below Initial Conc'))
+    
+    fig.update_layout(
+        title='CO2 Concentration vs Time within the specified range',
+        xaxis_title='Time (min)',
+        yaxis_title='CO2 concentration (%)',
+        template='plotly_white',
+        xaxis=dict(showgrid=True),
+        yaxis=dict(showgrid=True)
+    )
+    
+    st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+
+with st.expander('CO2 adsorbed volume (cm3)'):
+  volume_cm3_d
+
+
 
 
 
