@@ -84,14 +84,22 @@ with st.expander('Input parameters'):
   input_df_d = pd.DataFrame(input_data_d, index=[0])
   edited_df_d = st.data_editor(input_df_d)
 
-mask = (x >= start_time_a) & (x <= end_time_a)
-x_filtered = x[mask]
-y_filtered = y[mask]
+mask_a = (x >= start_time_a) & (x <= end_time_a)
+mask_d = (x >= start_time_d) & (x <= end_time_d)
+x_filtered_a = x[mask_a]
+x_filtered_d = x[mask_d]
+y_filtered_a = y[mask_a]
+y_filtered_d = y[mask_d]
 
-y_diff = np.abs(y_filtered - initial_conc_a)
-area_percentage_co2_sec = np.trapz(y_diff, x_filtered)
-area_fractional_co2_sec = area_percentage_co2_sec / 100
-volume_cm3 = area_fractional_co2_sec * (flow_rate_a / 60)
+y_diff_a = np.abs(y_filtered_a - initial_conc_a)
+area_percentage_co2_sec_a = np.trapz(y_diff_a, x_filtered_a)
+area_fractional_co2_sec_a = area_percentage_co2_sec_a / 100
+volume_cm3_a = area_fractional_co2_sec_a * (flow_rate_a / 60)
+
+y_diff_d = np.abs(y_filtered_d - initial_conc_d)
+area_percentage_co2_sec_d = np.trapz(y_diff_d, x_filtered_d)
+area_fractional_co2_sec_d = area_percentage_co2_sec_d / 100
+volume_cm3_d = area_fractional_co2_sec_d * (flow_rate_d / 60)
 
 #with st.expander('Visualization od adsorbed volume'):
 #  _lock = RLock()
@@ -112,16 +120,16 @@ with st.expander('Visualization of adsorbed volume'):
     fig = go.Figure()
     
     # Line plot for CO2 concentration
-    fig.add_trace(go.Scatter(x=x_filtered/60, y=y_filtered, mode='lines', name='CO2 concentration'))
+    fig.add_trace(go.Scatter(x=x_filtered_a/60, y=y_filtered_a, mode='lines', name='CO2 concentration'))
     
     # Horizontal line for initial concentration
-    fig.add_trace(go.Scatter(x=x_filtered/60, y=[initial_conc_a]*len(x_filtered/60), mode='lines', 
+    fig.add_trace(go.Scatter(x=x_filtered_a/60, y=[initial_conc_a]*len(x_filtered_a/60), mode='lines', 
                              line=dict(color='red', dash='dash'), name=f'y = {initial_conc_a}'))
     
     # Shaded area above and below initial concentration
-    fig.add_trace(go.Scatter(x=x_filtered/60, y=y_filtered, fill='tonexty', mode='none', 
+    fig.add_trace(go.Scatter(x=x_filtered_a/60, y=y_filtered_a, fill='tonexty', mode='none', 
                              fillcolor='rgba(0,100,200,0.3)', name='Above Initial Conc'))
-    fig.add_trace(go.Scatter(x=x_filtered/60, y=[initial_conc_a]*len(x_filtered/60), fill='tonexty', mode='none', 
+    fig.add_trace(go.Scatter(x=x_filtered_a/60, y=[initial_conc_a]*len(x_filtered_a/60), fill='tonexty', mode='none', 
                              fillcolor='rgba(200,100,0,0.3)', name='Below Initial Conc'))
     
     fig.update_layout(
@@ -136,7 +144,7 @@ with st.expander('Visualization of adsorbed volume'):
     st.plotly_chart(fig, theme="streamlit", use_container_width=True)
 
 with st.expander('CO2 adsorbed volume (cm3)'):
-  volume_cm3
+  volume_cm3_a
 
 
 
