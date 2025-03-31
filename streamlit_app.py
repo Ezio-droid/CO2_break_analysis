@@ -49,18 +49,15 @@ with st.expander('Data visualization'):
 
 #Parameters
 with st.sidebar:
-  st.header('Input features for adsorption')
-  flow_rate_a = st.slider("Flow Rate (sccm)", min_value=1.00, max_value=500.00, value=111.00)
-  start_time_a = st.slider("Start Time (sec)", min_value=0, max_value=36000, value=0)
-  end_time_a = st.slider("End Time (sec)", min_value=0, max_value=36000, value=600)
-  initial_conc_a = st.slider("Initial concentration (%CO2)", min_value=1.00, max_value=15.00, value=0.01)
-
-with st.sidebar:
-  st.header('Input features for desorption')
-  flow_rate_d = st.slider("Flow Rate (sccm)", min_value=1.00, max_value=500.00, value=111.00)
-  start_time_d = st.slider("Start Time (sec)", min_value=0, max_value=36000, value=0)
-  end_time_d = st.slider("End Time (sec)", min_value=0, max_value=36000, value=600)
-  initial_conc_d = st.slider("Initial concentration (%CO2)", min_value=1.00, max_value=15.00, value=0.01)
+  st.header('Input features for adsorption/desorption')
+  flow_rate_a = st.slider("Flow Rate Adsorption (sccm)", min_value=1.00, max_value=500.00, value=111.00)
+  flow_rate_d = st.slider("Flow Rate Desorption (sccm)", min_value=1.00, max_value=500.00, value=111.00)
+  start_time_a = st.slider("Start Time Adsorption (sec)", min_value=0, max_value=36000, value=0)
+  start_time_d = st.slider("Start Time Desorption (sec)", min_value=0, max_value=36000, value=0)
+  end_time_a = st.slider("End Time Adsorption (sec)", min_value=0, max_value=36000, value=600)
+  end_time_d = st.slider("End Time Desorption (sec)", min_value=0, max_value=36000, value=600)
+  initial_conc_a = st.slider("Initial concentration Adsorption (%CO2)", min_value=1.00, max_value=15.00, value=0.01)
+  initial_conc_d = st.slider("Initial concentration Desorption (%CO2)", min_value=1.00, max_value=15.00, value=0.01)
 
 #Data frame for input features
 input_data = {'flow_rate':flow_rate_a,
